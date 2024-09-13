@@ -1,13 +1,108 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+*{
+    margin: 0;
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+#root{
+    height: 37rem;
+}
+#all{
+    display: flex;
+    width: 100%;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    justify-items: center;
+    height: 100%;
+}
+@media (max-width: 680px) {
+    #all{
+        display: grid;
+    }
+}
+h3{
+    margin: 10px;
+    position: fixed;
+    width: max-content;
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 0 0 3px 0px #454545;
+    background-color: #ff8324;
+    cursor: pointer;
+    transition-duration: 0.3s;
+}
+h3:hover{
+    background-color: #ed7417;
+}
+h3::selection{
+    background-color: inherit;
+}
+button{
+    width: max-content;
+    padding: 10px;
+    margin: 25px 15px;
+    font-size: 18px;
+    border: none;
+    background: linear-gradient(#0000, rgb(0 0 0/10%)) top/100% 800%;
+    background-color: #3acf2c;
+    border-radius: 5px;
+    cursor: pointer;
+    transition-duration: 0.3s;
+}
+button:hover {
+    background-position: bottom;
+}
+button:active{
+    background: linear-gradient(#0000, rgb(0 0 0/20%)) top/100% 800%;
+    transition-duration: 50ms;
+}
+button[type="submit"]{
+    background-color: #909090;
+    border: 1px solid #666666;
+    font-size: 15px;
+}
+.reset{
+    background-color: #45a2ff;
+}
+.delete{
+    background-color: rgb(231, 0, 0);
+    box-shadow: #777777 0 0 3px 2px;
+}
+.delete:active{
+    background-color: #d00000;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+input{
+    padding: 4px 5px;
+    transition-duration: 0.09s;
+    border-radius: 5px;
+    border: 1px solid #666666;
+    caret-color: #ff8324;
+    margin: 3px;
+    text-align: center;
+    font-size: 17px
+}
+input:focus{
+    outline: #ff6f0089 3px solid;
+}
+#error{
+    border-left: #d00000 3px solid;
+    border-radius: 4px;
+    width: max-content;
+    padding: 15px;
+    background-color: #ffe3e3;
+}
+.container1, .container2{
+    text-align: center;
+    padding: 1.4em;
+    border-radius: 10px;
+    width: max-content;
+    height: max-content;
+    border: 1px solid #666666;
+    box-shadow: #696969 0 0 15px -3px;
+}
+.container1{
+    margin-right: 5%;
+}
+.timer{
+    font-size: 50px;
 }
