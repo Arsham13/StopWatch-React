@@ -1,4 +1,3 @@
-import { useRef } from "react";
 import Timer from "./components/Timer";
 import Timer2 from "./components/Timer2";
 import DarkMode from "./components/DarkMode";
