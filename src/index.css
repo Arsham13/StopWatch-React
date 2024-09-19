@@ -15,6 +15,9 @@
     height: 100%;
 }
 @media (max-width: 680px) {
+    .container1{
+        margin-right: 0%;
+    }
     #all{
         display: grid;
     }
@@ -105,4 +108,16 @@ input:focus{
 }
 .timer{
     font-size: 50px;
+}
+#timer{
+    animation: timer forwards alternate infinite 0.5s;
+    animation-play-state: paused;
+    }
+@keyframes timer {
+    0%{
+        opacity: 1;
+    } 
+    100%{
+        opacity: 0;
+    }
 }

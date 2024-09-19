@@ -9,6 +9,7 @@ function Timer2() {
     const [second, setSecond] = useState(0);
     const [isRunning, setIsRunning] = useState(false);
     const startRef = useRef(null);
+    const timerRef = useRef(null);
     const [error, setError] = useState('');
 
     const [styles, setStyles] = useState({
@@ -23,6 +24,8 @@ function Timer2() {
     useEffect(() => {
         let timer;
         if (isRunning && (minute > 0 || second > 0)) {
+        timerRef.current.style.animationPlayState = "paused"
+
             timer = setInterval(() => {
                 setSecond(prevSecond => {
                     if (prevSecond === 0) {
@@ -41,7 +44,12 @@ function Timer2() {
             }, 1000);
         } else if (!isRunning) {
             clearInterval(timer);
+        } else{
+            console.log('finidshddfsdf');
+            timerRef.current.style.animationPlayState = "running"
         }
+        
+        
         return () => clearInterval(timer);
     }, [isRunning, minute, second]);
 
@@ -63,6 +71,7 @@ function Timer2() {
         setMinute(inputMinRef.current.value);
         setSecond(inputSecRef.current.value);
         setStyles({start: {backgroundColor: '#3acf2c'}})
+        timerRef.current.style.animationPlayState = "paused"
 
         startRef.current.innerText = 'Start';
     };
@@ -74,6 +83,7 @@ function Timer2() {
         inputMinRef.current.value = '';
         inputSecRef.current.value = '';
         startRef.current.innerText = 'Start';
+        timerRef.current.style.animationPlayState = "paused"
     };
 
     const handleSubmit = () => {
@@ -124,7 +134,7 @@ function Timer2() {
                 error ? <p id='error' style={{ color: 'red' }}>{error}</p> :             
                 <div style={styles.container}>
                     <div className="btns">
-                        <p className="timer">
+                        <p ref={timerRef} id='timer' className="timer">
                             {String(minute).padStart(2, '0')}:{String(second).padStart(2, '0')}
                         </p>
                         <button style={styles.start} ref={startRef} onClick={handleStart} className='start' type="button">Start</button>
